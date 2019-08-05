@@ -4,7 +4,7 @@ import provider from "../provider/provider";
 import result from "../result/result";
 import graph from "../graph/graph";
 import taxonomy from "../taxonomy/taxonomy";
-import {update} from "../popoto";
+import {update} from "../popoto_gtas";
 
 // TOOLS -----------------------------------------------------------------------------------------------------------
 

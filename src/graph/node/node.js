@@ -6,7 +6,7 @@ import graph from "../graph";
 import provider from "../../provider/provider";
 import fitTextRenderer from "./fitTextRenderer";
 import dataModel from "../../datamodel/dataModel";
-import {update} from "../../popoto";
+import {update} from "../../popoto_gtas";
 import queryviewer from "../../queryviewer/queryviewer";
 import textRenderer from "./textRenderer";
 import logger from "../../logger/logger";
@@ -632,7 +632,7 @@ node.updateBackgroundElements = function () {
             if (n.hasOwnProperty("count") && n.count === 0) {
                 return "ppt-segment disabled";
             } else {
-                return "ppt-segment";
+              return "ppt-segment " + d.target;
             }
         })
         .attr("d", function (d) {

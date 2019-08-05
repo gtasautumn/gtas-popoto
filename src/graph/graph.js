@@ -4,7 +4,7 @@ import logger from "../logger/logger";
 import provider from "../provider/provider";
 import result from "../result/result";
 import toolBar from "../toolbar/toolbar";
-import {update, updateGraph} from "../popoto";
+import {update, updateGraph} from "../popoto_gtas";
 import link from "./link/link";
 import node from "./node/node";
 
@@ -22,8 +22,28 @@ graph.DISABLE_COUNT = false;
  */
 graph.containerId = "popoto-graph";
 graph.hasGraphChanged = true;
+
+// default zoom limits
+graph.ZOOM_MIN = .1;
+graph.ZOOM_MAX = 10;
+
+// Reset the zoom using params.
+graph.setZoom = function(min, max) {
+  var maxval, minval;
+  if (isNaN(min - max) || max - min < 0) {
+    minval = graph.ZOOM_MIN;
+    maxval = graph.ZOOM_MAX;
+  }
+  else {
+    minval = min;
+    maxval = max;
+  }
+
+  graph.zoom = d3.zoom().scaleExtent([minval, maxval]);
+}
+
 // Defines the min and max level of zoom available in graph query builder.
-graph.zoom = d3.zoom().scaleExtent([0.1, 10]);
+graph.zoom = d3.zoom().scaleExtent([graph.ZOOM_MIN, graph.ZOOM_MAX]);
 graph.WHEEL_ZOOM_ENABLED = true;
 graph.USE_DONUT_FORCE = false;
 graph.USE_VORONOI_LAYOUT = false;
@@ -73,6 +93,25 @@ graph.notifyListeners = function (event, parametersArray) {
         });
     }
 };
+
+/**
+ * Redraw any components that have been dropped, refresh all data for the new label
+ * 
+ * @param label - label to set as the main label for the graph
+ */
+graph.refresh = function (label) {
+  if (label !== undefined) {
+    graph.mainLabel = label;
+  }
+  graph.createGraphArea();
+  taxonomy.createTaxonomyPanel();
+  queryviewer.createQueryArea();
+  queryviewer.updateQuery();
+  cypherviewer.createQueryArea();
+  cypherviewer.updateQuery();
+  
+  tools.reset();
+}
 
 /**
  * Add a listener on graph save event.

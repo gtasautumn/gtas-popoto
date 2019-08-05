@@ -29,7 +29,7 @@ describe("render", function () {
         });
     });
 
-    describe('Should works with empty text', () => {
+    describe('Should work with empty text', () => {
 
         beforeEach(() => {
             document.body.innerHTML =
@@ -51,7 +51,7 @@ describe("render", function () {
         });
     });
 
-    describe('Should works with 1 word as text', () => {
+    describe('Should work with 1 word as text', () => {
 
         beforeEach(() => {
             document.body.innerHTML =
@@ -73,7 +73,7 @@ describe("render", function () {
         });
     });
 
-    describe('Should works with multiple words as text', () => {
+    describe('Should work with multiple words as text', () => {
 
         beforeEach(() => {
             document.body.innerHTML =
@@ -95,7 +95,7 @@ describe("render", function () {
         });
     });
 
-    describe('Should works with multiple words on same span', () => {
+    describe('Should work with multiple words on same span', () => {
 
         beforeEach(() => {
             document.body.innerHTML =
@@ -117,7 +117,7 @@ describe("render", function () {
         });
     });
 
-    describe('Should works with integer as text', () => {
+    describe('Should work with integer as text', () => {
 
         beforeEach(() => {
             document.body.innerHTML =

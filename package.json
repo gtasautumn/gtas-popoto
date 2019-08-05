@@ -1,9 +1,10 @@
 {
-  "name": "popoto",
+  "name": "popoto_gtas",
   "version": "2.0.18",
   "description": "Graph based search interface for Neo4j database.",
   "keywords": [
     "popoto",
+    "popoto_gtas",
     "d3",
     "neo4j",
     "cypher",
@@ -11,25 +12,21 @@
     "search"
   ],
   "homepage": "https://popotojs.com/",
-  "bugs": {
-    "url": "https://github.com/Nhogs/popoto/issues",
-    "email": "contact@popotojs.com"
-  },
   "license": "GPL-3.0",
   "author": {
-    "name": "Frederic Ciminera",
-    "email": "contact@popotojs.com"
+    "name": "gtasautumn",
+    "email": "gtas.autumn@gmail.com"
   },
   "contributors": [],
-  "main": "dist/popoto.node.js",
-  "style": "dist/popoto.min.css",
-  "unpkg": "dist/popoto.min.js",
-  "jsdelivr": "dist/popoto.min.js",
+  "main": "dist/popoto_gtas.node.js",
+  "style": "dist/popoto_gtas.min.css",
+  "unpkg": "dist/popoto_gtas.min.js",
+  "jsdelivr": "dist/popoto_gtas.min.js",
   "module": "index",
   "jsnext:main": "index",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Nhogs/popoto.git"
+    "url": "https://github.com/gtasautumn/popoto_gtas.git"
   },
   "jest": {
     "setupFiles": [
@@ -40,7 +37,7 @@
     "build": "rimraf dist && mkdir dist && json2module package.json > dist/package.js && node rollup.node && rollup -c --banner \"// Copyright (c) 2018 NHOGS Interactive.\" && npm run uglify",
     "pretest": "npm run build",
     "test": "jest --ci --coverage",
-    "uglify": "uglifyjs -b beautify=false,preamble=\"'// Copyright (c) 2018 NHOGS Interactive.'\" dist/popoto.js -c negate_iife=false -m -o dist/popoto.min.js && uglifycss css/popoto.css css/popoto-svg.css --output dist/popoto.min.css"
+    "uglify": "uglifyjs -b beautify=false,preamble=\"'// Copyright (c) 2018 NHOGS Interactive.'\" dist/popoto_gtas.js -c negate_iife=false -m -o dist/popoto_gtas.min.js && uglifycss css/popoto_gtas.css css/popoto_gtas-svg.css --output dist/popoto_gtas.min.css"
   },
   "dependencies": {
     "d3": "^5.9.2",
