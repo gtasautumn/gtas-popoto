@@ -18,12 +18,12 @@
     "email": "gtas.autumn@gmail.com"
   },
   "contributors": [],
-  "main": "dist/vaquita.node.js",
-  "style": "dist/vaquita.min.css",
-  "unpkg": "dist/vaquita.min.js",
-  "jsdelivr": "dist/vaquita.min.js",
-  "module": "index",
-  "jsnext:main": "index",
+  "main": "./dist/vaquita.node.js",
+  "style": "./dist/vaquita.min.css",
+  "unpkg": "./dist/vaquita.min.js",
+  "jsdelivr": "./dist/vaquita.min.js",
+  "module": "./index",
+  "jsnext:main": "./index",
   "repository": {
     "type": "git",
     "url": "https://github.com/gtasautumn/vaquita.git"
