@@ -1,3 +1,9 @@
+Vaquita is a fork of [Popoto.js](https://github.com/Nhogs/popoto)
+
+## Install
+For NPM, `npm install vaquita` For Yarn, `yarn add vaquita`.
+
+
 <p align="center"><a href="https://popotojs.com" target="_blank"><img width="301"src="http://www.popotojs.com/logo.png"></a></p>
 
 [![Build Status](https://travis-ci.org/Nhogs/popoto.svg?branch=master)](https://travis-ci.org/Nhogs/popoto)
