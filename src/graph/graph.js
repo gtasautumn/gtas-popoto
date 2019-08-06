@@ -95,25 +95,6 @@ graph.notifyListeners = function (event, parametersArray) {
 };
 
 /**
- * Redraw any components that have been dropped, refresh all data for the new label
- * 
- * @param label - label to set as the main label for the graph
- */
-graph.refresh = function (label) {
-  if (label !== undefined) {
-    graph.mainLabel = label;
-  }
-  graph.createGraphArea();
-  taxonomy.createTaxonomyPanel();
-  queryviewer.createQueryArea();
-  queryviewer.updateQuery();
-  cypherviewer.createQueryArea();
-  cypherviewer.updateQuery();
-  
-  tools.reset();
-}
-
-/**
  * Add a listener on graph save event.
  * @param listener
  */
