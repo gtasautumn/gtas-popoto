@@ -1,14 +1,14 @@
 import * as d3 from "d3";
 import {version} from "../dist/package";
-import dataModel from "popoto_gtas/src/datamodel/dataModel";
-import cypherviewer from "popoto_gtas/src/cypherviewer/cypherviewer";
-import graph from "popoto_gtas/src/graph/graph";
-import logger from "popoto_gtas/src/logger/logger";
-import provider from "popoto_gtas/src/provider/provider";
-import queryviewer from "popoto_gtas/src/queryviewer/queryviewer";
-import rest from "popoto_gtas/src/rest/rest";
-import result from "popoto_gtas/src/result/result";
-import taxonomy from "popoto_gtas/src/taxonomy/taxonomy";
+import dataModel from "./datamodel/dataModel";
+import cypherviewer from "./cypherviewer/cypherviewer";
+import graph from "./graph/graph";
+import logger from "./logger/logger";
+import provider from "./provider/provider";
+import queryviewer from "./queryviewer/queryviewer";
+import rest from "./rest/rest";
+import result from "./result/result";
+import taxonomy from "./taxonomy/taxonomy";
 
 /**
  * Main function to call to use Popoto.js.
