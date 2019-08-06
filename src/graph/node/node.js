@@ -29,7 +29,10 @@ node.NODE_TITLE_MAX_CHARS = 100;
 node.PAGE_SIZE = 10;
 
 // Count box default size
-node.CountBox = {x: 16, y: 33, w: 52, h: 19};
+// TODO Countbox - parameterize rough locations, eg lower left, lower center, etc
+// node.CountBox = {x: 16, y: 33, w: 52, h: 19};
+node.CountBox = {x: -24, y: 30, w: 52, h: 19};
+node.CountBoxText = {x: 2, y: 45, w: 52, h: 19};
 
 // Store choose node state to avoid multiple node expand at the same time
 node.chooseWaiting = false;
@@ -413,8 +416,8 @@ node.addForegroundElements = function (gNewNodeElements) {
 
         countForeground
             .append("text")
-            .attr("x", 42)
-            .attr("y", 48)
+            .attr("x", node.CountBoxText.x)
+            .attr("y", node.CountBoxText.y)
             .attr("text-anchor", "middle")
             .attr("class", "ppt-count-text");
     }
