@@ -1,7 +1,7 @@
 {
   "name": "popoto_gtas",
-  "version": "2.0.18",
-  "description": "Graph based search interface for Neo4j database.",
+  "version": "1.0.0",
+  "description": "Graph based search interface for Neo4j database, forked from Popotojs.",
   "keywords": [
     "popoto",
     "popoto_gtas",
@@ -26,7 +26,7 @@
   "jsnext:main": "index",
   "repository": {
     "type": "git",
-    "url": "https://github.com/gtasautumn/popoto_gtas.git"
+    "url": "https://github.com/gtasautumn/popoto-gtas.git"
   },
   "jest": {
     "setupFiles": [
