@@ -4,7 +4,7 @@ import logger from "../logger/logger";
 import provider from "../provider/provider";
 import result from "../result/result";
 import toolBar from "../toolbar/toolbar";
-import {update, updateGraph} from "../popoto_gtas";
+import {update, updateGraph} from "../vaquita";
 import link from "./link/link";
 import node from "./node/node";
 

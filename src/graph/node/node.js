@@ -6,7 +6,7 @@ import graph from "../graph";
 import provider from "../../provider/provider";
 import fitTextRenderer from "./fitTextRenderer";
 import dataModel from "../../datamodel/dataModel";
-import {update} from "../../popoto_gtas";
+import {update} from "../../vaquita";
 import queryviewer from "../../queryviewer/queryviewer";
 import textRenderer from "./textRenderer";
 import logger from "../../logger/logger";

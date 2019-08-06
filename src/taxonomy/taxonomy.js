@@ -7,7 +7,7 @@ import rest from "../rest/rest";
 import result from "../result/result";
 import tools from "../tools/tools";
 import graph from "../graph/graph";
-import {update} from "../popoto_gtas";
+import {update} from "../vaquita";
 
 var taxonomy = {};
 taxonomy.containerId = "popoto-taxonomy";

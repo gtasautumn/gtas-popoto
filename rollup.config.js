@@ -14,10 +14,10 @@ export default {
     external: ["d3", "jquery"],
     output: {
         extend: true,
-        file: "dist/popoto_gtas.js",
+        file: "dist/vaquita.js",
         format: "umd",
         indent: false,
-        name: "popoto_gtas",
+        name: "vaquita",
         globals: {
             d3: "d3",
             jquery: "jQuery"

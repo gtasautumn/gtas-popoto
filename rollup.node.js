@@ -10,7 +10,7 @@ rollup.rollup({
 }).then(function(result) {
     var code = result.code;
     return new Promise(function(resolve, reject) {
-        fs.writeFile("dist/popoto_gtas.node.js", code, "utf8", function(error) {
+        fs.writeFile("dist/vaquita.node.js", code, "utf8", function(error) {
             if (error) return reject(error);
             else resolve();
         });

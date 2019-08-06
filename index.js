@@ -10,5 +10,5 @@ export {default as rest} from "./src/rest/rest";
 export {default as result} from "./src/result/result";
 export {default as taxonomy} from "./src/taxonomy/taxonomy";
 export {default as tools} from "./src/tools/tools";
-export {start, update, updateGraph} from "./src/popoto_gtas";
+export {start, update, updateGraph} from "./src/vaquita";
 export {default as appendFittedText} from "./src/graph/util/appendFittedText";

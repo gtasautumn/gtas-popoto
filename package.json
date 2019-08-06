@@ -1,10 +1,10 @@
 {
-  "name": "popoto_gtas",
+  "name": "vaquita",
   "version": "1.0.0",
   "description": "Graph based search interface for Neo4j database, forked from Popotojs.",
   "keywords": [
     "popoto",
-    "popoto_gtas",
+    "vaquita",
     "d3",
     "neo4j",
     "cypher",
@@ -18,15 +18,15 @@
     "email": "gtas.autumn@gmail.com"
   },
   "contributors": [],
-  "main": "dist/popoto_gtas.node.js",
-  "style": "dist/popoto_gtas.min.css",
-  "unpkg": "dist/popoto_gtas.min.js",
-  "jsdelivr": "dist/popoto_gtas.min.js",
+  "main": "dist/vaquita.node.js",
+  "style": "dist/vaquita.min.css",
+  "unpkg": "dist/vaquita.min.js",
+  "jsdelivr": "dist/vaquita.min.js",
   "module": "index",
   "jsnext:main": "index",
   "repository": {
     "type": "git",
-    "url": "https://github.com/gtasautumn/popoto-gtas.git"
+    "url": "https://github.com/gtasautumn/vaquita.git"
   },
   "jest": {
     "setupFiles": [
@@ -37,7 +37,7 @@
     "build": "rimraf dist && mkdir dist && json2module package.json > dist/package.js && node rollup.node && rollup -c --banner \"// Copyright (c) 2018 NHOGS Interactive.\" && npm run uglify",
     "pretest": "npm run build",
     "test": "jest --ci --coverage",
-    "uglify": "uglifyjs -b beautify=false,preamble=\"'// Copyright (c) 2018 NHOGS Interactive.'\" dist/popoto_gtas.js -c negate_iife=false -m -o dist/popoto_gtas.min.js && uglifycss css/popoto_gtas.css css/popoto_gtas-svg.css --output dist/popoto_gtas.min.css"
+    "uglify": "uglifyjs -b beautify=false,preamble=\"'// Copyright (c) 2018 NHOGS Interactive.'\" dist/vaquita.js -c negate_iife=false -m -o dist/vaquita.min.js && uglifycss css/vaquita.css css/vaquita-svg.css --output dist/vaquita.min.css"
   },
   "dependencies": {
     "d3": "^5.9.2",

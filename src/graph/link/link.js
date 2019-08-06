@@ -4,7 +4,7 @@ import cypherviewer from "../../cypherviewer/cypherviewer";
 import graph from "../graph";
 import provider from "../../provider/provider";
 import dataModel from "../../datamodel/dataModel";
-import {update} from "../../popoto_gtas";
+import {update} from "../../vaquita";
 import queryviewer from "../../queryviewer/queryviewer";
 
 var link = {};
