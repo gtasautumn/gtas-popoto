@@ -377,8 +377,6 @@ node.addForegroundElements = function (gNewNodeElements) {
     });
 
     var grArrow = gArrow.append("g");
-    //grArrow.append("polygon")
-    //.attr("points", "53,-23 33,-33 33,-13");
 
     grArrow.append("circle")
         .attr("class", "ppt-rarrow")
@@ -582,7 +580,7 @@ node.updateBackgroundElements = function () {
                 newArc = singleArcSection.exec(arcPath)[1];
             }
 
-            //Replace all the comma's so that IE can handle it -_-
+            //Replace all the commas so that IE can handle it -_-
             //The g after the / is a modifier that "find all matches rather than stopping after the first match"
             newArc = newArc.replace(/,/g, " ");
 

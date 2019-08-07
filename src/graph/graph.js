@@ -50,6 +50,18 @@ graph.USE_VORONOI_LAYOUT = false;
 graph.USE_FIT_TEXT = false;
 
 /**
+ * APB
+ * HORIZONTAL_NODES is a quick fix used to better estimate the position of the root node for an 
+ * initial query of nodes connected in series so we don't have the graph beginning in the container
+ * center and extending off to the right. Currently storing it client-side in saved queries object
+ * as an addtribute since we know ahead of time how many nodes to expect, but considering replacing
+ * it with a toggle feature to augment the existing positioning where:
+ *    ON = calculate the offset based on the node arrangement (star pattern, serial, etc) and count
+ *    OFF = place root at the container center (default).
+ */
+graph.HORIZONTAL_NODES = 1;
+
+/**
  * Define the list of listenable events on graph.
  */
 graph.Events = Object.freeze({
@@ -340,31 +352,10 @@ graph.addRootNode = function (label) {
         graph.addSchema(provider.node.getSchema(label));
     } else {
 
-        var n = {
-            "id": dataModel.generateId(),
-            "type": graph.node.NodeTypes.ROOT,
-            // x and y coordinates are set to the center of the SVG area.
-            // These coordinate will never change at runtime except if the window is resized.
-            "x": graph.getSVGWidth() / 2,
-            "y": graph.getSVGHeight() / 2,
-            "fx": graph.getSVGWidth() / 2,
-            "fy": graph.getSVGHeight() / 2,
-            "tx": graph.getSVGWidth() / 2,
-            "ty": graph.getSVGHeight() / 2,
-            "label": label,
-            // The node is fixed to always remain in the center of the svg area.
-            // This property should not be changed at runtime to avoid issues with the zoom and pan.
-            "fixed": true,
-            // Label used internally to identify the node.
-            // This label is used for example as cypher query identifier.
-            "internalLabel": graph.node.generateInternalLabel(label),
-            // List of relationships
-            "relationships": [],
-            "isAutoLoadValue": provider.node.getIsAutoLoadValue(label) === true
-        };
+    var n = getNewNode(graph.node.NodeTypes.ROOT, label);
 
-        dataModel.nodes.push(n);
-        graph.notifyListeners(graph.Events.NODE_ROOT_ADD, [n]);
+    dataModel.nodes.push(n);
+    graph.notifyListeners(graph.Events.NODE_ROOT_ADD, [n]);
 
         graph.node.loadRelationshipData(n, function (relationships) {
             n.relationships = relationships;
@@ -392,28 +383,8 @@ graph.loadSchema = function (graphToLoad) {
     }
 
     var rootNodeSchema = graphToLoad;
-    var rootNode = {
-        "id": dataModel.generateId(),
-        "type": graph.node.NodeTypes.ROOT,
-        // x and y coordinates are set to the center of the SVG area.
-        // These coordinate will never change at runtime except if the window is resized.
-        "x": graph.getSVGWidth() / 2,
-        "y": graph.getSVGHeight() / 2,
-        "fx": graph.getSVGWidth() / 2,
-        "fy": graph.getSVGHeight() / 2,
-        "tx": graph.getSVGWidth() / 2,
-        "ty": graph.getSVGHeight() / 2,
-        "label": rootNodeSchema.label,
-        // The node is fixed to always remain in the center of the svg area.
-        // This property should not be changed at runtime to avoid issues with the zoom and pan.
-        "fixed": true,
-        // Label used internally to identify the node.
-        // This label is used for example as cypher query identifier.
-        "internalLabel": graph.node.generateInternalLabel(rootNodeSchema.label),
-        // List of relationships
-        "relationships": [],
-        "isAutoLoadValue": provider.node.getIsAutoLoadValue(rootNodeSchema.label) === true
-    };
+    var rootNode = getNewNode(graph.node.NodeTypes.ROOT, rootNodeSchema.label);
+    
     dataModel.nodes.push(rootNode);
     graph.notifyListeners(graph.Events.NODE_ROOT_ADD, [rootNode]);
 
@@ -471,6 +442,34 @@ graph.loadSchema = function (graphToLoad) {
         }
     }
 };
+
+
+      // TODO - extract node gen
+      // x and y coordinates are set to the center of the SVG area, optionally offset for multiple nodes.
+      // These coordinate will never change at runtime unless the window is resized.
+      function getNewNode(nodetype, label) {
+        var newnode = {
+          "id": dataModel.generateId(),
+          "type": nodetype,
+          "x": graph.getSVGWidth() / 2,
+          "y": graph.getSVGHeight() / 2,
+          "fx": graph.getSVGWidth() / (graph.HORIZONTAL_NODES + 1),
+          "fy": graph.getSVGHeight() / 2,
+          "tx": graph.getSVGWidth() / 2,
+          "ty": graph.getSVGHeight() / 2,
+          "label": label,
+          // The node is fixed to always remain in the center of the svg area.
+          // This property should not be changed at runtime to avoid issues with the zoom and pan.
+          "fixed": true,
+          // Label used internally to identify the node.
+          // This label is used for example as cypher query identifier.
+          "internalLabel": graph.node.generateInternalLabel(label),
+          "relationships": [],
+          "isAutoLoadValue": provider.node.getIsAutoLoadValue(label) === true
+        };
+
+        return newnode;
+      }
 
 graph.loadSchemaRelation = function (relationSchema, parentNode, linkIndex, parentLinkTotalCount) {
     var targetNodeSchema = relationSchema.target;
@@ -600,29 +599,7 @@ graph.addSchema = function (graphSchema) {
     }
 
     var rootNodeSchema = graphSchema;
-
-    var rootNode = {
-        "id": dataModel.generateId(),
-        "type": graph.node.NodeTypes.ROOT,
-        // x and y coordinates are set to the center of the SVG area.
-        // These coordinate will never change at runtime except if the window is resized.
-        "x": graph.getSVGWidth() / 2,
-        "y": graph.getSVGHeight() / 2,
-        "fx": graph.getSVGWidth() / 2,
-        "fy": graph.getSVGHeight() / 2,
-        "tx": graph.getSVGWidth() / 2,
-        "ty": graph.getSVGHeight() / 2,
-        "label": rootNodeSchema.label,
-        // The node is fixed to always remain in the center of the svg area.
-        // This property should not be changed at runtime to avoid issues with the zoom and pan.
-        "fixed": true,
-        // Label used internally to identify the node.
-        // This label is used for example as cypher query identifier.
-        "internalLabel": graph.node.generateInternalLabel(rootNodeSchema.label),
-        // List of relationships
-        "relationships": [],
-        "isAutoLoadValue": provider.node.getIsAutoLoadValue(rootNodeSchema.label) === true
-    };
+    var rootNode = getNewNode(graph.node.NodeTypes.ROOT, rootNodeSchema.label);
     dataModel.nodes.push(rootNode);
     graph.notifyListeners(graph.Events.NODE_ROOT_ADD, [rootNode]);
 

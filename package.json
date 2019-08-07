@@ -4,7 +4,10 @@
   "description": "Vaquita is a visual query builder for Neo4j, built on Popoto.js",
   "main": "index.js",
   "directories": {
-    "test": "test"
+    "test": "test",
+    "src": "src",
+    "css": "css",
+    "dist": "dist"
   },
   "scripts": {
     "build": "rimraf dist && mkdir dist && json2module package.json > dist/package.js && node rollup.node && rollup -c --banner \"// Copyright (c) 2018 NHOGS Interactive.\" && npm run uglify",

@@ -414,7 +414,7 @@ cypherviewer.generateData = function (links) {
 };
 
 /**
- *
+ *  APB TODO - Need a controller here to decouple cypherviewer from queryviewer and graph.
  */
 cypherviewer.mouseOverSpan = function () {
     var hoveredSpan = d3.select(this).data()[0];
