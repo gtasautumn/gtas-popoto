@@ -2,12 +2,25 @@
   "name": "vaquita",
   "version": "1.0.2",
   "description": "Vaquita is a visual query builder for Neo4j, built on Popoto.js",
-  "main": "index.js",
-  "directories": {
-    "test": "test",
-    "src": "src",
-    "css": "css",
-    "dist": "dist"
+  "keywords": [
+    "vaquita",
+    "popoto",
+    "neo4j",
+    "cypher",
+    "d3"
+  ],
+  "main": "dist/vaquita.node.js",
+  "style": "dist/vaquita.min.css",
+  "module": "index",
+  "jsnext:main": "index",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gtasautumn/vaquita.git"
+  },
+  "author": "gtasautumn",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/gtasautumn/vaquita/issues"
   },
   "scripts": {
     "build": "rimraf dist && mkdir dist && json2module package.json > dist/package.js && node rollup.node && rollup -c --banner \"// Copyright (c) 2018 NHOGS Interactive.\" && npm run uglify",
@@ -32,27 +45,5 @@
     "rollup-plugin-node-resolve": "^4.1.0",
     "uglify-js": "^3.5.3",
     "uglifycss": "^0.0.29"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/gtasautumn/vaquita.git"
-  },
-  "keywords": [
-    "vaquita",
-    "popoto",
-    "neo4j",
-    "cypher",
-    "d3"
-  ],
-  "author": "gtasautumn",
-  "license": "GPL-3.0",
-  "bugs": {
-    "url": "https://github.com/gtasautumn/vaquita/issues"
-  },
-  "homepage": "https://github.com/gtasautumn/vaquita#readme",
-  "jest": {
-    "setupFiles": [
-      "jest-canvas-mock"
-    ]
   }
 }
