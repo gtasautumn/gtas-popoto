@@ -259,12 +259,14 @@ graph.getRootNode = function () {
     return dataModel.getRootNode();
 };
 
-graph.centerRootNode = function () {
-    dataModel.getRootNode().fx = graph.getSVGWidth() / 2;
-    dataModel.getRootNode().fy = graph.getSVGHeight() / 2;
-    update();
-};
-
+    //TODO - test. Recenter HORIZ ONLY with offset for node count?
+    // should ultimately reposition the whole svg.
+    graph.centerRootNode = function () {
+      dataModel.getRootNode().fx = graph.getSVGWidth() / (graph.HORIZONTAL_NODES + 1);
+      // dataModel.getRootNode().fy = graph.getSVGHeight() / 2;
+      update();
+    };
+  
 /**
  * Get the actual width of the SVG element containing the graph query builder.
  * @returns {number}
