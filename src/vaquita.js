@@ -172,5 +172,5 @@ export function refresh(label) {
   cypherviewer.createQueryArea();
   cypherviewer.updateQuery();
   
-  tools.reset();
+  // tools.reset();
 }
