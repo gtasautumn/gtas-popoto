@@ -18,7 +18,7 @@ import taxonomy from "./taxonomy/taxonomy";
  */
 //TODO add instance creation + config
 export function start(startParam) {
-    logger.info("Popoto " + version + " start on " + startParam);
+    logger.info("Vaquita " + version + " start on " + startParam);
 
     graph.mainLabel = startParam;
 
