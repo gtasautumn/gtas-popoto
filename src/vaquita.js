@@ -23,7 +23,7 @@ export function start(startParam) {
     graph.mainLabel = startParam;
 
     if (rest.CYPHER_URL === undefined) {
-        logger.error("popoto.rest.CYPHER_URL is not set but is required.");
+        logger.error("vaquita.rest.CYPHER_URL is not set but is required.");
     } else {
         // TODO introduce component generator mechanism instead for future plugin extensions
         checkHtmlComponents();
