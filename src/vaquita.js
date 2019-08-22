@@ -8,6 +8,7 @@ import provider from "./provider/provider";
 import queryviewer from "./queryviewer/queryviewer";
 import rest from "./rest/rest";
 import result from "./result/result";
+import tools from "./tools/tools";
 import taxonomy from "./taxonomy/taxonomy";
 
 /**
@@ -171,6 +172,6 @@ export function refresh(label) {
   queryviewer.updateQuery();
   cypherviewer.createQueryArea();
   cypherviewer.updateQuery();
-  
-  // tools.reset();
+
+  tools.reset();
 }

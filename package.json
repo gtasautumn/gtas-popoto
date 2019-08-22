@@ -1,6 +1,6 @@
 {
   "name": "vaquita",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Vaquita is a visual query builder for Neo4j, built on Popoto.js",
   "keywords": [
     "vaquita",
