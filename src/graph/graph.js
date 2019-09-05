@@ -276,7 +276,7 @@ graph.getSVGWidth = function () {
         logger.debug("graph.svg is undefined or empty.");
         return 0;
     } else {
-        return document.getElementById(graph.containerId).clientWidth;
+        return (document.getElementById(graph.containerId) || {}).clientWidth || 0;
     }
 };
 
@@ -289,7 +289,7 @@ graph.getSVGHeight = function () {
         logger.debug("graph.svg is undefined or empty.");
         return 0;
     } else {
-        return document.getElementById(graph.containerId).clientHeight;
+      return (document.getElementById(graph.containerId) || {}).clientHeight || 0;
     }
 };
 
